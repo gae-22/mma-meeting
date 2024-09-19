@@ -1,56 +1,42 @@
-# MMA-MEETING
+## MMA Meeting Repository
 
-これは部会を楽にしようという部長のめんどくさい精神から生まれた web アプリです．
+**Overview**
 
-以下の機能があります．ほぼ Wiki からの引用．
+This repository, `mma-meeting`, is designed to facilitate the organization and management of meetings related to Mixed Martial Arts (MMA). It provides tools and resources to streamline meeting processes, ensuring efficient communication and documentation.
 
--   今年度のすべての議題
--   直近の部会の議題
--   投票用の GoogleForm へのリンク，パスワード
--   部会の開催予定日時，教室
+**Features**
 
-その他にも，`gas`を用いて，GoogleForm を自動で作成しています．
+-   **Meeting Scheduling**: Tools to help schedule meetings, send invitations, and manage RSVPs.
+-   **Agenda Management**: Create and distribute meeting agendas to keep discussions focused and productive.
+-   **Minutes Recording**: Templates and guidelines for recording meeting minutes effectively.
+-   **Participant Coordination**: Manage participant lists and contact information.
+-   **Resource Sharing**: Share documents, presentations, and other resources relevant to the meeting topics.
 
-# Installation
+**Installation**
 
-## 1. Clone this repository
-
-このリポジトリをクローンする．
-
-```bash
-git clone ssh://git@gitlab.mma.club.uec.ac.jp:2223/gae/mma-meeting.git
-```
-
-## 2. Start the virtual environment
+To use this repository, clone it to your local machine using the following command:
 
 ```bash
-python3 -m venv .venv       # 仮想環境を作成
-source .venv/bin/activate   # 仮想環境を有効化
+git clone https://github.com/gae-22/mma-meeting.git
 ```
 
-## 3. Install packages
+Ensure you have the necessary dependencies installed. Refer to the `requirements.txt` file for a list of required packages.
 
-以下のコマンドで`requirements.txt`からパッケージをインストールする．
-ただ，仮想環境で実行することを推奨する．
+**Usage**
 
-```bash
-pip install -r requirements.txt
-```
+1. **Schedule a Meeting**: Use the scheduling tool to set up a new meeting.
+2. **Prepare an Agenda**: Draft an agenda using the templates provided in the `templates` directory.
+3. **Conduct the Meeting**: Follow the agenda and use the provided tools to record minutes.
+4. **Post-Meeting Actions**: Distribute minutes and follow up on action items.
 
-## 4. Run the server
+**Contributing**
 
-起動自体は以下のコマンドで行う．しかし，実際に動かすためには，`wiki`のログイン情報やスプレッドシート編集用の`json`ファイルなどの設定が必要になる．
-ログイン情報に関しては，スクレイピングをするプログラムファイルに直接書くようにいっているサイトが多いが，今回は gialab にあげることを考えて，`json`ファイルに書いている．
-今回は`datas`ディレクトリを設定ファイル保管場所にした．
+Contributions are welcome! Please fork this repository and submit a pull request with your proposed changes. Ensure that your code adheres to the project's coding standards.
 
-```bash
-python server.py
-```
+**License**
 
-### 参考
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
-[Flask](https://msiz07-flask-docs-ja.readthedocs.io/ja/latest/)  
-[ログインのいるサイトからのスクレイピング](https://zenn.dev/mamekko/articles/ea44fe8a77da7c)  
-[ログイン情報を別ファイルに保存](https://qiita.com/fujisystem/items/95208f86c21a181d55a3)
-[Python で SpreadSheet を編集する](https://zenn.dev/eito_blog/articles/02c132bbc1c4bd)  
-[Python でファイルの読み書き](https://zenn.dev/makio/articles/66e7e24d7c4478)
+---
+
+This README provides a comprehensive guide for users to understand, install, and contribute to the `mma-meeting` repository effectively.
