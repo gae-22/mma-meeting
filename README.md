@@ -2,7 +2,7 @@
 
 **Overview**
 
-This repository, `mma-meeting`, is designed to facilitate the organization and management of meetings related to Mixed Martial Arts (MMA). It provides tools and resources to streamline meeting processes, ensuring efficient communication and documentation.
+This repository, `mma-meeting`, is designed to facilitate the organization and management of meetings related to Microcomputer Making Association (MMA). It provides tools and resources to streamline meeting processes, ensuring efficient communication and documentation.
 
 **Features**
 
@@ -18,9 +18,10 @@ To use this repository, clone it to your local machine using the following comma
 
 ```bash
 git clone https://github.com/gae-22/mma-meeting.git
+cd mma-meeting
+rye sync
+rye run python server.py
 ```
-
-Ensure you have the necessary dependencies installed. Refer to the `requirements.txt` file for a list of required packages.
 
 **Usage**
 
