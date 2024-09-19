@@ -1,0 +1,10 @@
+**/__pycache__*
+**/.DS_Store
+.venv
+.vscode
+
+# ./data/*
+config.ini
+deploy_id.txt
+meeting.json
+password.txt

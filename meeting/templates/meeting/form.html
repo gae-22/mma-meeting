@@ -1,0 +1,19 @@
+{% extends "layout.html" %} {% block content %}
+
+<h1>
+    今回のパスワード
+    <strong>{{ password }}</strong>
+</h1>
+<p>
+    <a href="https://forms.gle/nMF6qXnqFdtmTzuH6" , target="_blank"
+        >部会フォーム</a
+    >
+    <a
+        href="https://docs.google.com/spreadsheets/d/1SLP8YSEvr7KY5J5g4SNAC4xaaRrCfoFStgmxBl1xkao/edit?resourcekey#gid=1772261946"
+        ,
+        target="_blank"
+        >部会スプシ</a
+    >
+</p>
+<img id="qr" src="./../static/images/qr.png" alt="QRコード" />
+{% endblock %}

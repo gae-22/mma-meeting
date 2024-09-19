@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: white;
+    color: black;
+    font-family: 'Lucida Grande', Geneva, Helvetica, Arial, sans-serif;
+    font-size: 18pt;
+}
+
+body {
+    background-color: white;
+}
+
+main {
+    margin: 0 1em 0 0;
+}
+
+.container {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.hamburger-menu {
+    display: none;
+}
+
+.layout {
+    background-color: #fff;
+    padding: 0 0 0 0;
+}
+
+.sidebar {
+    margin: 3em 2em 0 0;
+    padding: 1em 1em 1em 1em;
+    float: left;
+    top: 25px;
+    position: sticky;
+    width: 8%;
+    height: calc(100vh - 25px - 3em);
+    text-align: right;
+    font-size: 70%;
+}
+
+#logo {
+    left: 0;
+    margin: 0 0 1em 0;
+    width: 100%;
+    position: sticky;
+}
+
+#qr {
+    margin: 0 0 1em 0;
+    width: 40%;
+}
+
+.side-contents {
+    margin: 0 0 0 0;
+    padding: 0.6em 0.3em 0.6em 0;
+    font-size: 1em;
+    border-right: #aaa 1px solid;
+}
+
+.toc {
+    color: #000;
+    font-weight: bold;
+    margin: 0 0 0.5em 0;
+}
+
+.toi a {
+    color: #444;
+    text-decoration: none;
+}
+
+.title {
+    top: 0;
+    position: sticky;
+    background-color: #93a5bb;
+    color: #fff;
+}
+
+table {
+    height: auto;
+    margin: auto 0 0 3em;
+    width: 80%;
+    font-size: 24pt;
+}
+
+th,
+td {
+    padding: 0 0.5em 0 0.5em;
+    border: 1px solid #afc9e7;
+}
+
+td p {
+    margin: 0;
+    padding: 0;
+}
+
+th.header,
+td.header {
+    background-color: #93a5bb;
+    font-weight: bold;
+    color: white;
+    height: 0.9em;
+    font-size: 0.9em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    text-align: left;
+}
+
+th.header {
+    text-align: center;
+}
+
+td.contents {
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    background-color: white;
+    color: #000;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #303c4f;
+    font-weight: normal;
+}
+
+a,
+img,
+img.drawing {
+    border: 0;
+}
+
+a {
+    color: #333399;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #12123a;
+    text-decoration: underline;
+}
+
+iframe {
+    border: 0;
+    top: 0;
+    margin: auto;
+    width: calc(80vw);
+    height: 100vh;
+}
+
+strong {
+    font-weight: bold;
+    font-size: 6rem;
+}
+
+/* PC用のCSSはメディアクエリの外に記述する */
+
+@media screen and (max-width: 959px) {
+    /* 959px以下に適用されるCSS（タブレット用） */
+}
+@media screen and (max-width: 480px) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
+    html {
+        font-size: 12pt;
+        width: 100vw;
+        padding: 0;
+        margin: 0;
+    }
+    body {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    table {
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        height: auto;
+        width: 100%;
+    }
+    .sidebar {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+    }
+    .menu-btn {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        display: flex;
+        height: 60px;
+        width: 60px;
+        justify-content: center;
+        align-items: center;
+        z-index: 90;
+        background-color: #3584bb;
+    }
+    .menu-btn span,
+    .menu-btn span:before,
+    .menu-btn span:after {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 25px;
+        border-radius: 3px;
+        background-color: #ffffff;
+        position: absolute;
+    }
+
+    .menu-content {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 100%; /*leftの値を変更してメニューを画面外へ*/
+        z-index: 80;
+        background-color: #3584bb;
+        transition: all 0.5s; /*アニメーション設定*/
+    }
+    .menu-content ul {
+        padding: 70px 10px 0;
+    }
+    .menu-content ul li {
+        border-bottom: solid 1px #ffffff;
+        list-style: none;
+    }
+    .menu-content ul li a {
+        display: block;
+        width: 100%;
+        font-size: 15px;
+        box-sizing: border-box;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 9px 15px 10px 0;
+        position: relative;
+    }
+    .menu-content ul li a::before {
+        content: '';
+        width: 7px;
+        height: 7px;
+        border-top: solid 2px #ffffff;
+        border-right: solid 2px #ffffff;
+        transform: rotate(45deg);
+        position: absolute;
+        right: 11px;
+        top: 16px;
+    }
+
+    .menu-btn span:before {
+        bottom: 8px;
+    }
+    .menu-btn span:after {
+        top: 8px;
+    }
+    #menu-btn-check:checked ~ .menu-content {
+        left: 0; /*メニューを画面内へ*/
+    }
+    #menu-btn-check:checked ~ .menu-btn span {
+        background-color: rgba(
+            255,
+            255,
+            255,
+            0
+        ); /*メニューオープン時は真ん中の線を透明にする*/
+    }
+    #menu-btn-check:checked ~ .menu-btn span::before {
+        bottom: 0;
+        transform: rotate(45deg);
+    }
+    #menu-btn-check:checked ~ .menu-btn span::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+    #menu-btn-check {
+        display: none;
+    }
+}

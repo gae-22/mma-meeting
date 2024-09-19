@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index,nofollow" />
+        <title>MMA部会</title>
+        <link rel="stylesheet" href="./../static/css/common.css" />
+        <script src="./../static/javascript/common.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="layout sidebar">
+                <a href="/agenda">
+                    <img
+                        id="logo"
+                        src="./../static/images/Logo.png"
+                        alt="Home"
+                    />
+                </a>
+                <div class="side-contents">
+                    <p class="toc">目次</p>
+                    <p class="toi"><a href="/thread">全ての議題</a></p>
+                    <p class="toi"><a href="/agenda">直近の議題</a></p>
+                    <p class="toi"><a href="/form">投票</a></p>
+                    <p class="toi"><a href="/room">教室</a></p>
+                </div>
+            </div>
+            <header>
+                <div class="hamburger-menu">
+                    <input type="checkbox" id="menu-btn-check" />
+                    <label for="menu-btn-check" class="menu-btn"
+                        ><span></span
+                    ></label>
+                    <div class="menu-content">
+                        <ul>
+                            <li class="toi">
+                                <a href="/thread">全ての議題</a>
+                            </li>
+                            <li class="toi">
+                                <a href="/agenda">直近の議題</a>
+                            </li>
+                            <li class="toi"><a href="/form">投票</a></li>
+                            <li class="toi"><a href="/room">教室</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="layout">{% block content %}{% endblock %}</div>
+            </main>
+        </div>
+    </body>
+</html>

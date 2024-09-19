@@ -1,0 +1,24 @@
+{% extends "layout.html" %} {% block content %}
+<h2 class="rooms">確保した教室一覧</h2>
+<table class="rooms">
+    <tbody>
+        <tr>
+            <th colspan="5" class="header">部会スケジュール</th>
+        </tr>
+        <tr>
+            <td class="header">日時</td>
+            <td class="header">部屋</td>
+            <td class="header">目的</td>
+            <td class="header">使用日時</td>
+            <td class="header">備考</td>
+        </tr>
+        {% for i in range (1,length)%}
+        <tr>
+            {% for j in range(5) %}
+            <td class="schedules">{{ROOMS[i][j]}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
