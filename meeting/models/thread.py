@@ -1,10 +1,11 @@
-from datetime import datetime
 import re
+from datetime import datetime
+from typing import List
 
 from meeting.models.scrape import scrape
 
 
-def update():
+def update(username: str, password: str) -> List[List[str]]:
     current_year = datetime.now().year
     current_month = datetime.now().month
     if current_month <= 3:
@@ -14,8 +15,7 @@ def update():
         + str(current_year)
         + "/?action=login"
     )
-
-    soup = scrape(BBS_URL)
+    soup = scrape(BBS_URL, username, password)
     tbody = soup.find("tbody")
     mat = []
     trs = tbody.find_all("tr")
@@ -37,5 +37,4 @@ def update():
                 td = str(td).replace(item, "")
             r.append(td)
         mat.append(r)
-
     return mat[0:-1]

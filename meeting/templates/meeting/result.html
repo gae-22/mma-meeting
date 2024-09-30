@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>投票結果</h1>
+<table>
+    <thead>
+        <tr>
+            {% for header in responses[0] %}
+            <th>{{ header }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+</table>
+{% endblock %}

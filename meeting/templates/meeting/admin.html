@@ -1,0 +1,25 @@
+{% extends "layout.html" %} {% block content %}
+<h1>
+    今回のパスワード
+    <strong>{{ password }}</strong>
+</h1>
+<p>
+    <a href="https://forms.gle/nMF6qXnqFdtmTzuH6" target="_blank" rel="noopener noreferrer">部会フォーム</a>
+    <a href="https://docs.google.com/forms/d/15t0fGeGoWB-jla3Qb3u-tUB2QHYOHb7rTyKeC3yS2Vc/edit#responses" target="_blank" rel="noopener noreferrer">部会フォーム回答</a>
+    <a href="https://docs.google.com/spreadsheets/d/1SLP8YSEvr7KY5J5g4SNAC4xaaRrCfoFStgmxBl1xkao/edit?resourcekey#gid=1772261946" target="_blank" rel="noopener noreferrer">部会スプシ</a>
+</p>
+<div class="result-visibility">
+    <label class="switch">
+        <input type="checkbox" id="toggle-result-visibility" {% if is_result_public %}checked{% endif %}>
+        <span class="slider"></span>
+    </label>
+    <label for="toggle-result-visibility"></label>
+</div>
+<a href="{{ url_for('admin_conf') }}" class="admin-settings" target="_blank"><i class="fas fa-cog"></i></a>
+<img id="qr" src="./../static/images/qrcode.svg" alt="QRコード" />
+<script>
+    window.onbeforeunload = function () {
+        return 'リロード禁止です！';
+    };
+</script>
+{% endblock %}

@@ -1,24 +1,23 @@
 import requests
-import configparser
+from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 
+load_dotenv()
 
-def scrape(URL):
-    config_file = "./datas/config.ini"
-    config = configparser.ConfigParser()
-    config.read(config_file, encoding="utf-8")
-    name = config.get("User", "name")
-    password = config.get("User", "password")
 
+def scrape(URL: str, username: str, password: str) -> BeautifulSoup:
+    session = requests.session()
     login_info = {
-        "name": name,
+        "name": username,
         "password": password,
         "login": "ログイン",
-        "login": "ログイン",
     }
-
-    session = requests.session()
     res = session.post(URL, data=login_info)
     soup = BeautifulSoup(res.content, "html.parser")
-
     return soup
+
+
+if __name__ == "__main__":
+    WHITEBOARD_URL = "https://wiki.mma.club.uec.ac.jp/WhiteBoard"
+    soup = scrape(WHITEBOARD_URL, "username", "password")
+    print(soup)

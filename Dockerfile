@@ -1,18 +1,21 @@
-FROM python:3.12-bookworm as builder
-
-WORKDIR /build
-
-COPY . .
-
-RUN pip install --user -r requirements.txt
-
-FROM python:3.12-slim-bookworm
+FROM python:3.12-bookworm
 
 WORKDIR /app
 
-COPY --from=builder /root/.local /root/.local
-COPY --from=builder /build /app
+COPY pyproject.toml .python-version README.md /app/
 
-ENV PATH=/root/.local:$PATH
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends curl clang libldap2-dev libsasl2-dev libssl-dev && \
+    rm -rf /var/lib/apt/lists/*
 
-CMD ["python", "server.py"]
+ENV RYE_HOME="/opt/rye"
+ENV PATH="$RYE_HOME/shims:$PATH"
+
+RUN curl -sSLf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
+RUN rye sync
+
+COPY datas/ /app/datas/
+COPY meeting/ /app/meeting/
+COPY server.py .env /app/
+
+CMD ["rye", "run", "python", "server.py"]

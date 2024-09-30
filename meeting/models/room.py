@@ -1,9 +1,11 @@
+from typing import List
+
 from meeting.models.scrape import scrape
 
 
-def rooms() -> list[list[str]]:
+def rooms(username: str, password: str) -> List[List[str]]:
     WHITEBOARD_URL = "https://wiki.mma.club.uec.ac.jp/WhiteBoard"
-    soup = scrape(WHITEBOARD_URL)
+    soup = scrape(WHITEBOARD_URL, username, password)
     tbody = soup.find("tbody")
     mat = []
     trs = tbody.find_all("tr")

@@ -1,24 +1,26 @@
+import os
+
 import gspread
+from dotenv import load_dotenv
+import requests
+from requests.exceptions import JSONDecodeError
 
-from meeting.models.agenda import get_agendas
+load_dotenv()
+key_name = os.getenv("KEY_NAME")
+sheet_id = os.getenv("SHEET_ID")
 
-key_name = "./datas/meeting.json"
-sheet_id = "1SLP8YSEvr7KY5J5g4SNAC4xaaRrCfoFStgmxBl1xkao"
-
-
-def write_password(password):
+def write_password(password) -> None:
     sheet_name = "概要"
     gc = gspread.service_account(filename=key_name)
     wks = gc.open_by_key(sheet_id).worksheet(sheet_name)
     wks.update_cell(8, 2, password)
 
 
-def write_agenda(password):
+def write_agenda(agendas, password) -> None:
     sheet_name = "質問"
     gc = gspread.service_account(filename=key_name)
     wks = gc.open_by_key(sheet_id).worksheet(sheet_name)
     last_row = len(wks.col_values(1))
-    agendas = get_agendas()
     k = 3
     cnt = 0
     plus_rows = []
@@ -40,3 +42,21 @@ def write_agenda(password):
         wks.update_cell(j, 1, "")
 
     write_password(password)
+
+
+# エラーハンドリングの追加
+def fetch_sheet_metadata(client, sheet_id, params=None):
+    try:
+        response = client.request(
+            "get",
+            f"https://sheets.googleapis.com/v4/spreadsheets/{sheet_id}",
+            params=params,
+        )
+        response.raise_for_status()
+        return response.json()
+    except JSONDecodeError:
+        print("JSONデコードエラー: レスポンスが無効なJSON形式です。")
+        return None
+    except requests.exceptions.RequestException as e:
+        print(f"リクエストエラー: {e}")
+        return None

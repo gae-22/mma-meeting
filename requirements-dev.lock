@@ -11,58 +11,40 @@
 
 -e file:.
 beautifulsoup4==4.12.3
-    # via bs4
-    # via mma-meeting
 blinker==1.8.2
-    # via flask
 bs4==0.0.2
-    # via mma-meeting
 cachetools==5.5.0
-    # via google-auth
 certifi==2024.8.30
-    # via requests
 charset-normalizer==3.3.2
-    # via requests
 click==8.1.7
-    # via flask
 flask==3.0.3
-    # via mma-meeting
+flask-ldap3-login==1.0.2
+flask-wtf==1.2.1
+google-api-core==2.20.0
+google-api-python-client==2.147.0
 google-auth==2.35.0
-    # via google-auth-oauthlib
-    # via gspread
-    # via mma-meeting
+google-auth-httplib2==0.2.0
 google-auth-oauthlib==1.2.1
-    # via gspread
+googleapis-common-protos==1.65.0
 gspread==6.1.2
-    # via mma-meeting
+httplib2==0.22.0
 idna==3.10
-    # via requests
 itsdangerous==2.2.0
-    # via flask
 jinja2==3.1.4
-    # via flask
+ldap3==2.9.1
 markupsafe==2.1.5
-    # via jinja2
-    # via werkzeug
 oauthlib==3.2.2
-    # via requests-oauthlib
+proto-plus==1.24.0
+protobuf==5.28.2
 pyasn1==0.6.1
-    # via pyasn1-modules
-    # via rsa
 pyasn1-modules==0.4.1
-    # via google-auth
 pyparsing==3.1.4
-    # via mma-meeting
+python-dotenv==1.0.1
 requests==2.32.3
-    # via mma-meeting
-    # via requests-oauthlib
 requests-oauthlib==2.0.0
-    # via google-auth-oauthlib
 rsa==4.9
-    # via google-auth
 soupsieve==2.6
-    # via beautifulsoup4
+uritemplate==4.1.1
 urllib3==2.2.3
-    # via requests
 werkzeug==3.0.4
-    # via flask
+wtforms==3.1.2

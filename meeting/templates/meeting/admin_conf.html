@@ -1,0 +1,26 @@
+{% extends "layout.html" %} {% block content %}
+<h1>管理者一覧</h1>
+<ul>
+    {% for admin in admins %}
+    <p class="admin-list">
+        <a
+            href="{{ url_for('remove_admin', admin=admin) }}"
+            class="btn btn-danger btn-sm"
+        >
+            <i class="fas fa-trash-alt"></i>
+        </a>
+        <span class="admin-name">{{ admin }}</span>
+    </p>
+    {% endfor %}
+</ul>
+
+<h2>管理者の追加</h2>
+<form action="{{ url_for('admin_conf') }}" method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <label for="new_admin">新しい管理者:</label>
+        {{ form.new_admin(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-primary">追加</button>
+</form>
+{% endblock %}
